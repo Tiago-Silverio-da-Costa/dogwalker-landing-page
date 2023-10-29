@@ -11,7 +11,7 @@ export default function Contact() {
             <div className="bg-primary text-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Entrar em contato</h2>
               <p className="mb-4">
-              Se você tiver alguma dúvida ou dúvida, não hesite em nos contatar usando os seguintes métodos.
+              Se você tiver alguma dúvida, não hesite em nos contatar usando os seguintes métodos.
               </p>
               <div className="flex items-center space-x-2 mb-4">
                 <FaPhone className="text-2xl" />

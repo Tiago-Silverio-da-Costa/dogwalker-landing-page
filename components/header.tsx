@@ -49,11 +49,6 @@ export default function Header() {
     }
   }, [isMenuOpen, isMenuOpenRef])
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <header className="bg-white text-primary fixed w-full">
@@ -65,11 +60,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          {mobileMenuOpen ? (
-            <FaTimes className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
-          ) : (
-            <FaBars className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
-          )}
+          <FaBars className="text-2xl cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
 
         {/* Desktop Menu */}
@@ -91,27 +82,27 @@ export default function Header() {
         </nav>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary w-1/2 h-screen flex flex-col items-center">
+        {isMenuOpen && (
+          <nav ref={isMenuOpenRef} className="md:hidden absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary w-1/2 h-screen flex flex-col items-center">
             <ul className="mt-12 space-y-4 text-xl">
               <li>
-                <a href="#" className="text-text-white hover:underline" onClick={toggleMobileMenu}>
+                <a href="#home" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                   Home
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-text-white hover:underline" onClick={toggleMobileMenu}>
+              {/* <li>
+                <a href="#" className="text-text-white hover:underline" >
                   Services
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a href="#" className="text-text-white hover:underline" onClick={toggleMobileMenu}>
-                  Pricing
+                <a href="#contact" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="text-text-white hover:underline" onClick={toggleMobileMenu}>
-                  Contact
+                <a href="#pricing" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  Pricing
                 </a>
               </li>
             </ul>
