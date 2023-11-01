@@ -60,53 +60,29 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <FaBars className="text-2xl cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)} />
+          <FaBars className="text-2xl" onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-4">
-            <li>
-              <a href="#home" className="hover:underline text-text-white">Home</a>
-            </li>
-            {/* <li>
-              <a href="#services" className="hover:underline text-text-white">Services</a>
-            </li> */}
-            <li>
-              <a href="#contact" className="hover:underline text-text-white">Contato</a>
-            </li>
-            <li>
-              <a href="#pricing" className="hover:underline text-text-white">Preços</a>
-            </li>
-          </ul>
-        </nav>
+        <div className="hidden md:flex items-center gap-4">
+          <a href="#home" className="hover:underline text-text-white">Home</a>
+          <a href="#contact" className="hover:underline text-text-white">Contato</a>
+          <a href="#pricing" className="hover:underline text-text-white">Preços</a>
+        </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <nav ref={isMenuOpenRef} className="md:hidden absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary w-1/2 h-screen flex flex-col items-center">
-            <ul className="mt-12 space-y-4 text-xl">
-              <li>
-                <a href="#home" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                  Home
-                </a>
-              </li>
-              {/* <li>
-                <a href="#" className="text-text-white hover:underline" >
-                  Services
-                </a>
-              </li> */}
-              <li>
-                <a href="#contact" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-text-white hover:underline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                  Pricing
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <div ref={isMenuOpenRef} className="md:hidden absolute top-0 right-0 w-1/2 h-screen flex gap-2 flex-col items-center bg-primary text-white pt-4">
+            <a href="#home">
+              Home
+            </a>
+            <a href="#contact">
+              Contact
+            </a>
+            <a href="#pricing">
+              Pricing
+            </a>
+          </div>
         )}
       </div>
     </header>
